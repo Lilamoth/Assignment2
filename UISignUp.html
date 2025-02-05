@@ -61,7 +61,7 @@
     </div>
 
     <div class="login-container" style="max-width: 800px">
-      <form id="signUpForm" onsubmit="return validateSignUpForm()">
+      <form id="signUpForm">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName" class="form-label">First Name</label>
@@ -193,5 +193,63 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("signUpForm")
+          .addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const dob = document.getElementById("dob").value;
+            const gender = document.getElementById("gender").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword =
+              document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+              alert("Passwords do not match!");
+              return;
+            }
+
+            const user = {
+              firstName,
+              lastName,
+              dob,
+              gender,
+              phone,
+              email,
+              password,
+            };
+
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            const storedUser = localStorage.getItem("user");
+
+            if (storedUser) {
+              const user = JSON.parse(storedUser); // Parse the stored string into an object
+              console.log("User found in localStorage:", user); // Log the user data to the console
+            } else {
+              console.log("No user found in localStorage.");
+            }
+            alert("Registration successful! You are now logged in.");
+            window.location.href = "Landingpage.html";
+          });
+      });
+      function checkUserInLocalStorage() {
+        const storedUser = localStorage.getItem("user");
+
+        if (storedUser) {
+          const user = JSON.parse(storedUser); // Parse the stored user object
+          console.log("User found in localStorage:", user);
+        } else {
+          console.log("No user found in localStorage.");
+        }
+      }
+      checkUserInLocalStorage();
+    </script>
+  </body>
 </html>
