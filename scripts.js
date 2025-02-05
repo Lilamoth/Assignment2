@@ -12,6 +12,7 @@ function validateForm() {
         return false;
     }
     alert("Login successful!");
+    window.location.href = 'LandingPage.html';
     return true;
 }
 
@@ -40,6 +41,7 @@ function validateSignUpForm() {
     return false;
   }
   alert("Sign up successful!");
+  window.location.href = 'LandingPage.html';
   return true;
 }
 
@@ -102,7 +104,7 @@ const books = [
     title: "1984",
     author: "George Orwell",
     rating: 5,
-    image: "./images/book-3.jpg",
+    image: "./images/book3.png",
     description: `1984 is a dystopian social science fiction novel and cautionary tale, warning of the dangers of totalitarianism and extreme political ideology.`,
     genres: "Fiction, Dystopian, Political Fiction, Science Fiction"
   }
@@ -134,5 +136,14 @@ document.getElementById('next-btn').addEventListener('click', () => {
 
 // Initial display
 displayBook(currentBookIndex);
+
+// ...existing code...
+
+document.addEventListener('DOMContentLoaded', () => {
+  const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+  const now = new Date();
+  const updatedReservations = reservations.filter(reservation => new Date(reservation.expirationDate) > now);
+  localStorage.setItem('reservations', JSON.stringify(updatedReservations));
+});
 
 // ...existing code...

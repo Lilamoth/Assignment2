@@ -32,35 +32,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">My Reservations</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Categories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Ask Librarian</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Register/Login</a>
-            </li>
+              <li class="nav-item"><a class="nav-link" href="myReservations.html">My Reservations</a></li>
+              <li class="nav-item"><a class="nav-link active" href="Categories.html">Categories</a></li>
+              <li class="nav-item"><a class="nav-link" href="UILibrarian.html">Ask Librarian</a></li>
+              <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="contactUs.html">Contact Us</a></li>
           </ul>
           <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search Book"
-            />
-            <button class="btn btn-outline-primary" type="submit">🔍</button>
+              <input class="form-control me-2" type="search" placeholder="Search Book">
+              <button class="btn btn-outline-primary" type="submit">🔍</button>
           </form>
-        </div>
+      </div>
       </div>
     </nav>
     <section class="book-details-container d-flex container my-5 position-relative">
       <button class="btn btn-outline-secondary position-absolute start-0 top-50 translate-middle-y" id="prev-btn">⬅️</button>
       <div class="image-button me-4">
         <img src="./images/book-1.jpg" class="img" />
-        <button class="img-btn mt-2">Reserve</button>
+        <button class="img-btn mt-2" id="reserve-btn">Reserve</button>
       </div>
       <div class="book-details">
         <div class="book-title">To all the boys I've Loved Before</div>
@@ -103,5 +93,41 @@
       </div>
       <button class="btn btn-outline-secondary position-absolute end-0 top-50 translate-middle-y" id="next-btn">➡️</button>
     </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const book = JSON.parse(localStorage.getItem('selectedBook'));
+        if (book) {
+          document.querySelector('.book-title').textContent = book.title;
+          document.querySelector('.book-author').textContent = book.author;
+          document.querySelector('.rating').innerHTML = Array(5).fill(0).map((_, i) => 
+            i < book.rating ? '<i class="fas fa-star text-warning"></i>' : '<i class="far fa-star text-warning"></i>'
+          ).join('');
+          document.querySelector('.book-desc').innerHTML = `<p>${book.description}</p>`;
+          document.querySelector('.genre').textContent = `Genres: ${book.genres}`;
+          document.querySelector('.image-button img').src = book.image;
+        }
+
+        document.getElementById('reserve-btn').addEventListener('click', () => {
+          alert('Book has been reserved for you!');
+          const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+          const reservationNo = Math.floor(Math.random() * 1000000000);
+          const expirationDate = new Date();
+          expirationDate.setDate(expirationDate.getDate() + 2);
+          reservations.push({
+            title: book.title,
+            status: 'Reserved',
+            period: '01-20-2025 to 02-30-2025',
+            reservationNo: reservationNo,
+            expirationDate: expirationDate
+          });
+          localStorage.setItem('reservations', JSON.stringify(reservations));
+          window.location.href = 'myReservations.html';
+        });
+
+        document.getElementById('back-btn').addEventListener('click', () => {
+          window.location.href = 'myReservations.html';
+        });
+      });
+    </script>
   </body>
 </html>
