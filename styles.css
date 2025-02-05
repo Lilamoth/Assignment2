@@ -1,0 +1,284 @@
+body {
+  background: url() no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(./images/bg-image.jpg);
+  background-size: cover;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+  margin: 0 10px;
+}
+
+.container h3 {
+  font-weight: 700;
+  color: rgb(74, 74, 100);
+  margin-top: 60px;
+}
+.login-container {
+  max-width: 500px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  font-family: "Georgia", serif;
+}
+.social-icons img {
+  width: 30px;
+  margin: 5px;
+  transition: transform 0.3s;
+}
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+.form-control {
+  border-radius: 20px;
+}
+.btn-primary {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(45deg, #0056b3, #007bff);
+}
+
+/* Header Styles */
+.header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Navigation Bar Styles */
+.main-nav {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Content Wrapper Styles */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.books-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-list {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.book {
+    margin: 0 10px;
+    flex: 0 0 auto;
+}
+
+.book img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.prev, .next {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+/* Sidebar Styles */
+.side-container {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.blogs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.blogs a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #dee2e6;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 5px;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+CSS Book details
+
+.book-details-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 10px 100px;
+  padding: 50px;
+}
+
+.image-button {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.img {
+  height: 600px;
+}
+
+.img-btn {
+  border-radius: 5px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  width: 150px;
+  color: white;
+  border: none;
+}
+
+.book-details {
+  max-width: 900px;
+}
+
+.book-title {
+  font-weight: 600;
+  font-size: 42px;
+}
+
+.book-author {
+  font-size: 18px;
+}
+
+.book-desc {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+}
+
+.genre {
+  font-style: italic;
+  margin-top: 20px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Details</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Book Reservation System</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Reservations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ask Librarian</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register/Login</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Book"
+            />
+            <button class="btn btn-outline-primary" type="submit">🔍</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <section class="book-details-container d-flex container my-5 position-relative">
+      <button class="btn btn-outline-secondary position-absolute start-0 top-50 translate-middle-y" id="prev-btn">⬅️</button>
+      <div class="image-button me-4">
+        <img src="./images/book-1.jpg" class="img" />
+        <button class="img-btn mt-2">Reserve</button>
+      </div>
+      <div class="book-details">
+        <div class="book-title">To all the boys I've Loved Before</div>
+        <div class="book-author">Mark Manson</div>
+        <div class="rating">
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
+          <i class="fas fa-star text-warning"></i>
+          <i class="far fa-star text-warning"></i>
+          <!-- Empty Star -->
+        </div>
+        <p class="mt-2">4/5 Rating</p>
+        <div class="book-desc">
+          <p>
+            To All the Boys I’ve Loved Before is a young adult novel telling the
+            story of Lara Jean Covey, a Korean-American teenager, whose social
+            life becomes fraught with complication and deceit after love letters
+            she never intended for anyone else to read are mysteriously mailed
+            to all of her crushes.
+          </p>
+
+          <p>
+            To All the Boys I’ve Loved Before has a narrative structure and
+            themes characteristic of the Young Adult genre. The story is told
+            from protagonist Lara Jean’s first-person point of view, giving the
+            reader full access to her thoughts and feelings. Jenny Han captures
+            the voice and language of a smart, shy, lonely teenage girl with an
+            optimistic outlook. The novel is a romance story, a coming-of-age
+            story, and an exploration of the bonds that connect sisters. The
+            chapters are short and mimic the urgency of Lara Jean’s rapidly
+            developing problems, a structure that allows the reader to
+            experience the tension, conflict, and ultimate joy Lara Jean goes
+            through.
+          </p>
+        </div>
+        <div class="genre">
+          Genres: Fiction, School, Historical, Romance, Literature
+        </div>
+      </div>
+      <button class="btn btn-outline-secondary position-absolute end-0 top-50 translate-middle-y" id="next-btn">➡️</button>
+    </section>
+  </body>
+</html>

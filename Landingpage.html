@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reservation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="LandingPage.html">
+                <img src="./images/Booklogo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+                Book Reservation System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="myReservations.html">My Reservations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Categories.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UILibrarian.html">Ask Librarian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UISignup.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="UILogin.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactUs.html">Contact Us</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search Book">
+                    <button class="btn btn-outline-primary" type="submit">🔍</button>
+                </form>
+                <button class="btn btn-outline-danger ms-2" type="button">Logout</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Books Container (Trending + Loved) -->
+        <div class="books-container">
+            <section class="container trending-books">
+                <h2>Trending Books</h2>
+                <div class="book-list">
+                    <button class="prev">&lt;</button>
+                    <div class="book"><img src="./images/book1.png" alt="Book 1"></div>
+                    <div class="book"><img src="./images/book2.png" alt="Book 2"></div>
+                    <div class="book"><img src="./images/book3.png" alt="Book 3"></div>
+                    <div class="book"><img src="./images/book4.png" alt="Book 4"></div>
+                    <button class="next">&gt;</button>
+                </div>
+            </section>
+
+            <section class="container books-loved">
+                <h2>Books Loved</h2>
+                <div class="book-list">
+                    <button class="prev">&lt;</button>
+                    <div class="book"><img src="./images/book6.png" alt="Loved Book 1"></div>
+                    <div class="book"><img src="./images/book7.png" alt="Loved Book 2"></div>
+                    <div class="book"><img src="./images/book8.png" alt="Loved Book 3"></div>
+                    <div class="book"><img src="./images/book9.png" alt="Loved Book 4"></div>
+                    <button class="next">&gt;</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Sidebar for Blogs -->
+        <aside class="side-container">
+            <section class="blogs">
+                <h2>Latest Blog Posts</h2>
+                <ul>
+                    <li><a href="blog1.html">Top 10 Must-Read Books of 2024</a></li>
+                    <li><a href="blog2.html">How to Find Your Next Favorite Book</a></li>
+                    <li><a href="blog3.html">The Evolution of Digital Libraries</a></li>
+                    <li><a href="blog4.html">Best Fiction Books to Read This Year</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h3>Open Library</h3>
+            <ul>
+                <li>Career</li>
+                <li>Blog</li>
+                <li>Vision</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Discover</h3>
+            <ul>
+                <li>Book</li>
+                <li>Author</li>
+                <li>Collections</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Help Centre</h3>
+            <ul>
+                <li>Book Request</li>
+                <li>Release Notes</li>
+            </ul>
+        </div>
+        <div class="social-media">
+            <a href="www.facebook.com">Facebook</a>
+            <a href="www.twitter.com">Twitter</a>
+            <a href="www.linkdin.com">LinkedIn</a>
+            <a href="www.google.com">Google+</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

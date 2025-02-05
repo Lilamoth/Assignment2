@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ask Librarian</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="scripts.js"></script>
+    <style>
+      .btn:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="LandingPage.html">
+          <img src="./images/Booklogo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+          Book Reservation System
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="myReservations.html">My Reservations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Categories.html">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="UILibrarian.html">Ask Librarian</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="UISignup.html">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="UILogin.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactUs.html">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Book"
+            />
+            <button class="btn btn-outline-primary" type="submit">🔍</button>
+          </form>
+          <button class="btn btn-outline-danger ms-2" type="button">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container text-center my-4">
+      <h3>Ask Librarian</h3>
+    </div>
+
+    <div class="login-container" style="max-width: 800px">
+      <form id="askLibrarianForm" onsubmit="return validateLibrarianForm()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              class="form-control"
+              placeholder="First Name"
+              required
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              class="form-control"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="city" class="form-label">City</label>
+            <input
+              type="text"
+              id="city"
+              class="form-control"
+              placeholder="City"
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="state" class="form-label">State</label>
+            <select id="state" class="form-control" required>
+              <option value="">Select Province</option>
+              <option value="AB">Alberta</option>
+              <option value="BC">British Columbia</option>
+              <option value="MB">Manitoba</option>
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland and Labrador</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="ON">Ontario</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="QC">Quebec</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="NT">Northwest Territories</option>
+              <option value="NU">Nunavut</option>
+              <option value="YT">Yukon</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="zip" class="form-label">Zip Code</label>
+            <input
+              type="text"
+              id="zip"
+              class="form-control"
+              placeholder="Zip Code"
+              pattern="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d"
+              title="Please enter a valid Canadian postal code (e.g., A1A 1A1)"
+              required
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="query" class="form-label">Your Query</label>
+          <textarea
+            id="query"
+            class="form-control"
+            rows="4"
+            placeholder="Write your query here..."
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+        Your query has been successfully sent!
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
