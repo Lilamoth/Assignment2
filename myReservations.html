@@ -10,12 +10,6 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* .reservation-container {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      } */
       .search-bar {
         max-width: 300px;
         margin-bottom: 20px;
@@ -23,6 +17,12 @@
       .reservation-table th, .reservation-table td {
         padding: 15px;
         text-align: center;
+      }
+      .book-image {
+        width: 50px;
+        height: 75px;
+        object-fit: cover;
+        margin-right: 10px;
       }
     </style>
   </head>
@@ -65,62 +65,60 @@
       <div class="reservation-container">
         <input type="text" class="form-control search-bar" placeholder="Search by name" id="search-bar" />
         <ul class="list-group mt-2" id="search-results" style="display: none;"></ul>
-        <table class="table reservation-table mt-3">
-          <thead>
-            <tr>
-              <th>Books</th>
-              <th>Status</th>
-              <th>Period</th>
-              <th>Reservation No</th>
-            </tr>
-          </thead>
-          <tbody id="reservation-list">
-            <tr>
-              <td><img src="./images/book_thumb1.jpg" alt="Book" width="50" height="50" /> <br/>The Myth of Sisyphus</td>
-              <td>Pending</td>
-              <td>01-20-2025 to 02-30-2025</td>
-              <td>738296489</td>
-            </tr>
-            <tr>
-                <td><img src="./images/book_thumb2.jpg" alt="Book" width="50" height="50" /> <br/>The Great Gatsby</td>
-                <td>Reserved</td>
-                <td>01-20-2025 to 02-30-2025</td>
-                <td>738296489</td>
-            </tr>
-            <tr>
-                <td><img src="./images/book_thumb3.jpg" alt="Book" width="50" height="50" /> <br/>The Picture of Dorian Gray</td>
-                <td>Reserved</td>
-                <td>01-20-2025 to 02-30-2025</td>
-                <td>738296489</td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="reservationsList" class="list-group">
+          <!-- Reservations will be dynamically added here -->
+        </div>
         <a href="BookDetails.html" class="btn btn-primary mt-3">Reserve a New Book</a>
       </div>
     </div>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
-        const reservationList = document.getElementById('reservation-list');
+        let reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+        const reservationsList = document.getElementById('reservationsList');
         const books = [
-          { title: "The Myth of Sisyphus", author: "Albert Camus", edition: "1st", year: 1942, genre: "Philosophy", publisher: "Gallimard", ISBN: "978-0679733737" },
-          { title: "The Great Gatsby", author: "F. Scott Fitzgerald", edition: "1st", year: 1925, genre: "Fiction", publisher: "Scribner", ISBN: "978-0743273565" },
-          { title: "The Picture of Dorian Gray", author: "Oscar Wilde", edition: "1st", year: 1890, genre: "Fiction", publisher: "Lippincott's Monthly Magazine", ISBN: "978-0141439570" },
-          { title: "To all the boys I've Loved Before", author: "Jenny Han", edition: "1st", year: 2014, genre: "Young Adult", publisher: "Simon & Schuster", ISBN: "978-1442426702" },
-          { title: "The Subtle Art of Not Giving a F*ck", author: "Mark Manson", edition: "1st", year: 2016, genre: "Self-help", publisher: "HarperOne", ISBN: "978-0062457714" },
-          { title: "1984", author: "George Orwell", edition: "1st", year: 1949, genre: "Dystopian", publisher: "Secker & Warburg", ISBN: "978-0451524935" }
+          { title: "The Myth of Sisyphus", author: "Albert Camus", edition: "1st", year: 1942, genre: "Philosophy", publisher: "Gallimard", ISBN: "978-0679733737", image: "./images/book1.png" },
+          { title: "The Great Gatsby", author: "F. Scott Fitzgerald", edition: "1st", year: 1925, genre: "Fiction", publisher: "Scribner", ISBN: "978-0743273565", image: "./images/book2.png" },
+          { title: "The Picture of Dorian Gray", author: "Oscar Wilde", edition: "1st", year: 1890, genre: "Fiction", publisher: "Lippincott's Monthly Magazine", ISBN: "978-0141439570", image: "./images/book3.png" },
+          { title: "To all the boys I've Loved Before", author: "Jenny Han", edition: "1st", year: 2014, genre: "Young Adult", publisher: "Simon & Schuster", ISBN: "978-1442426702", image: "./images/book4.png" },
+          { title: "The Subtle Art of Not Giving a F*ck", author: "Mark Manson", edition: "1st", year: 2016, genre: "Self-help", publisher: "HarperOne", ISBN: "978-0062457714", image: "./images/book5.png" },
+          { title: "1984", author: "George Orwell", edition: "1st", year: 1949, genre: "Dystopian", publisher: "Secker & Warburg", ISBN: "978-0451524935", image: "./images/book6.png" }
         ];
 
-        reservations.forEach(reservation => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${reservation.title}</td>
-            <td>${reservation.status}</td>
-            <td>${reservation.period}</td>
-            <td>${reservation.reservationNo}</td>
+        // Filter out cancelled reservations
+        reservations = reservations.filter(reservation => reservation.status !== 'Cancelled');
+
+        reservations.forEach((reservation, index) => {
+          const book = books.find(b => b.title === reservation.title);
+          const listItem = document.createElement('div');
+          listItem.className = 'list-group-item d-flex align-items-center';
+          listItem.innerHTML = `
+            <img src="${book.image}" alt="${reservation.title}" class="book-image">
+            <div>
+              <h5>${reservation.title}</h5>
+              <p><strong>Author:</strong> ${reservation.author}</p>
+              <p><strong>Status:</strong> ${reservation.status}</p>
+              <p><strong>Reservation Period:</strong> ${reservation.period}</p>
+              <p><strong>Reservation No:</strong> ${reservation.reservationNo}</p>
+              <p><strong>Expires On:</strong> ${new Date(reservation.expirationDate).toLocaleString()}</p>
+              <button class="btn btn-danger cancel-btn" data-index="${index}">Cancel Reservation</button>
+            </div>
           `;
-          reservationList.appendChild(row);
+          reservationsList.appendChild(listItem);
+        });
+
+        document.querySelectorAll('.cancel-btn').forEach(button => {
+          button.addEventListener('click', (event) => {
+            const index = event.target.getAttribute('data-index');
+            reservations[index].status = 'Cancelled';
+            localStorage.setItem('reservations', JSON.stringify(reservations));
+            alert('Your reservation has been cancelled and the data will disappear in 48 hours.');
+            event.target.closest('.list-group-item').remove();
+            setTimeout(() => {
+              reservations.splice(index, 1);
+              localStorage.setItem('reservations', JSON.stringify(reservations));
+            }, 48 * 60 * 60 * 1000); // 48 hours in milliseconds
+          });
         });
 
         const searchBar = document.getElementById('search-bar');
