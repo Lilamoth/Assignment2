@@ -1,9 +1,7 @@
 body {
-  background: url() no-repeat center center fixed;
+  background: url(BackgroundImage.jpg) no-repeat center center fixed;
   background-size: cover;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url(./images/bg-image.jpg);
-  background-size: cover;
+  font-family: Verdana, Geneva, sans-serif; /* Updated font family */
 }
 body::before {
   content: "";
@@ -15,9 +13,11 @@ body::before {
   z-index: -1;
 }
 .navbar {
-  background-color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, #f9fafb, #011429); /* Added gradient background */
   padding: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(5, 110, 222, 0.1);
+  color: #fff; 
+  font-weight: bold; /* Make text bold */
 }
 .nav-link {
   margin: 0 10px;
@@ -26,12 +26,14 @@ body::before {
 .container h3 {
   font-weight: 700;
   color: rgb(74, 74, 100);
-  margin-top: 60px;
+  margin-top: 0px;
 }
 .login-container {
   max-width: 500px;
   margin: auto;
   background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+  backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 10px;
 
@@ -150,7 +152,9 @@ body::before {
 
 .container {
     margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -205,6 +209,20 @@ body::before {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #dee2e6;
+    font-size: 14px; /* Added font size for footer text */
+    color: #6c757d; /* Added color for footer text */
+}
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer .row {
+    width: 100%;
+}
+.footer .col-md-6 {
+    display: flex;
+    justify-content: space-between;
 }
 
 .footer-section {
@@ -274,7 +292,9 @@ CSS Book details
 
 .book-desc {
   margin-top: 20px;
-  background-color: white;
+  background: white;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+  backdrop-filter: blur(10px);
   padding: 20px;
 }
 
